@@ -23,10 +23,7 @@ Unity2020.3.17
 プレイヤーが向いている方向に攻撃するのではなく、マウスをクリックした方向に攻撃するようにしてみました。  
 プレイヤーが攻撃した際に作られる弾にアタッチされてるスクリプト"BulletCtrl"から  
 ```C#  
-this.clickPosition = this.PlayerScript.mousePosition;//このプレハブが作成された際にクリックした座標をPlayerObjectから取得
-
-this.clickPosition = Input.mousePosition;
-rigid2D.AddForce(new Vector2(5 , clickPosition.y * 0.033f) , ForceMode2D.Impulse);//クリックしたあたりに弾が飛ぶようになる   
+rigid2D.AddForce(new Vector2(5 , Input.mousePosition.y * 0.033f) , ForceMode2D.Impulse);//クリックしたあたりに弾が飛ぶようになる    
 ```  
-今回**一番失敗した点**はゲームを実行する環境によって左右されるコードが多くなってしまった点です。  
-Textの大きさが環境によって大きくなりすぎる、といったのもですが特に上記のコード
+ただ、このコードだと"Input.mousePosition.y"をAddForceの引数に使ってしまったため、ゲームがプレイされる環境によって作用される部分が出てしまいました。  
+Textの大きさが環境によって大きくなりすぎる、といったものもですがその辺りしっかり考えて作業しないといけないなと思いました。
