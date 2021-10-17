@@ -11,7 +11,6 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject Aimprefab;//照準画像のプレハブを取得するため
     private float walkForce = 30.0f;
     private const float maxSpeed = 2.0f;
-    public Vector2 mousePosition;
 
     private Vector2 worldMousePosition;
 
@@ -36,13 +35,13 @@ public class PlayerCtrl : MonoBehaviour
 
         float speedx = Mathf.Abs(this.rigid2d.velocity.x);
         
+        //アニメーション管理用フラグ
         bool attackFlag = false;
         bool jumpFlag = false;
 
         if(Input.GetMouseButtonUp(0) && this.delta >= attackSpanTime){
             this.delta = 0;
             attackFlag = true;
-            mousePosition = Input.mousePosition;//bullerControllerスクリプトで使えるように、クリックしたマウスの座標を取得
             worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(bulletPrefab , new Vector3(transform.position.x + 0.5f , transform.position.y + 0.3f , transform.position.z) , Quaternion.identity);
             Instantiate(Aimprefab , worldMousePosition , Quaternion.identity);//クリックしたところに照準の画像をだす

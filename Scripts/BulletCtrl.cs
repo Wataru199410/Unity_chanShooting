@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 public class BulletCtrl : MonoBehaviour
 {
     private Rigidbody2D rigid2D;
-    private Vector2 clickPosition;
-    private GameObject Player;
-    private PlayerCtrl PlayerScript;
+
     // Update is called once per frame
 
     void Start(){
         this.rigid2D = GetComponent<Rigidbody2D>();
-        this.Player = GameObject.Find("Player");
-        this.PlayerScript = Player.GetComponent<PlayerCtrl>();
 
-        this.clickPosition = this.PlayerScript.mousePosition;//このプレハブが作成された際にクリックした座標をPlayerObjectから取得
+        rigid2D.AddForce(new Vector2(5 , Input.mousePosition.y * 0.033f) , ForceMode2D.Impulse);//クリックしたあたりに弾が飛ぶようになる   
 
-            this.clickPosition = Input.mousePosition;
-            rigid2D.AddForce(new Vector2(5 , clickPosition.y * 0.033f) , ForceMode2D.Impulse);//クリックしたあたりに弾が飛ぶようになる   
+
     }
      void Update()
     {           
