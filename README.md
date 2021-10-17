@@ -26,7 +26,11 @@ Unity2020.3.17
 rigid2D.AddForce(new Vector2(5 , Input.mousePosition.y * 0.033f) , ForceMode2D.Impulse);//クリックしたあたりに弾が飛ぶようになる    
 ```  
 ただ、このコードだと"Input.mousePosition.y"をAddForceの引数に使ってしまったため、ゲームがプレイされる環境によって数値が変わる部分が出てしまいました。  
-Textの大きさが環境によって大きくなりすぎる、といったものもですがその辺りしっかり考えて作業しないといけないなと思いました。  
-# 素材をお借りしたサイト一覧
-Unity-chan公式https://unity-chan.com/  
-![ユニティちゃんライセンス](http://unity-chan.com/images/imageLicenseLogo.png)
+**様々な環境で同じようにプレイできる**ゲーム、そこの意識が足りてなかったと痛感しました。  
+# 素材をお借りしたサイト
+キャラクター:Unity-chan公式https://unity-chan.com/  
+![ユニティちゃんライセンス](http://unity-chan.com/images/imageLicenseLogo.png)  
+
+背景:NEO HIMEISM様https://neo-himeism.net/  
+
+音楽:魔王魂様https://maou.audio/
